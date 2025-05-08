@@ -1,0 +1,10 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+
+
+-e .
+
+# -e . is trigger setup.py file
