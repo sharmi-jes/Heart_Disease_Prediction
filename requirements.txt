@@ -7,7 +7,7 @@ pymongo[srv]==3.6
 pymongo
 certifi
 dotenv
-
+Pyaml
 -e .
 
 # -e . is trigger setup.py file
