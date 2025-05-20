@@ -12,9 +12,9 @@ load_dotenv()  # load environment variables from .env
 
 MONGO_DB_URL = os.getenv('MONGO_DB_URL')
 
-# Simple logging substitute if you don't have custom logger
-def log_info(msg):
-    print("[INFO]", msg)
+# # Simple logging substitute if you don't have custom logger
+# def log_info(msg):
+#     print("[INFO]", msg)
 
 class HeartDataExtract:
     def __init__(self):
@@ -28,14 +28,14 @@ class HeartDataExtract:
 
     def csv_to_json(self, dataframe_path):
         try:
-            log_info(f"Reading CSV file: {dataframe_path}")
+            logging.info(f"Reading CSV file: {dataframe_path}")
             df = pd.read_csv(dataframe_path)
-            log_info(f"CSV file read successfully with shape: {df.shape}")
+            logging.info(f"CSV file read successfully with shape: {df.shape}")
 
             # Drop _id column if exists (to avoid MongoDB conflict)
             if "_id" in df.columns:
                 df.drop(columns="_id", inplace=True)
-                log_info("Dropped '_id' column from dataframe")
+                logging.info("Dropped '_id' column from dataframe")
 
             df.reset_index(drop=True, inplace=True)
 
@@ -52,18 +52,18 @@ class HeartDataExtract:
             if not MONGO_DB_URL:
                 raise Exception("MONGO_DB_URL environment variable is not set or empty")
 
-            log_info(f"Connecting to MongoDB...")
+            logging.info(f"Connecting to MongoDB...")
             mongo_client = pymongo.MongoClient(MONGO_DB_URL)
 
             # Test connection
             mongo_client.admin.command('ping')
-            log_info("MongoDB connected successfully!")
+            logging.info("MongoDB connected successfully!")
 
             db = mongo_client[database]
             coll = db[collection]
 
             result = coll.insert_many(records)
-            log_info(f"Inserted {len(result.inserted_ids)} records into MongoDB collection '{collection}'")
+            logging.info(f"Inserted {len(result.inserted_ids)} records into MongoDB collection '{collection}'")
 
             return len(result.inserted_ids)
         except Exception as e:
@@ -86,5 +86,5 @@ if __name__ == "__main__":
         print(f"Total records inserted: {number_of_records}")
 
     except Exception as e:
-        print("Main script error:", e)
-        raise
+        
+        raise HeartDiasesException(e,sys)

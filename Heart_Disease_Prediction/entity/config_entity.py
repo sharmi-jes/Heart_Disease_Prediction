@@ -25,5 +25,5 @@ class DataIngestionConfig:
         self.data_ingestion_database_name=training_pipeline.DATA_INGESTION_DATABASE_NAME
         self.data_ingestion_collection_name=training_pipeline.DATA_INGESTION_COLLECTION_NAME
 
-        self.train_file=training_pipeline.TRAIN_FILE_NAME
-        self.test_file=training_pipeline.TEST_FILE_NAME
+        self.data_ingestion_train_file=os.path.join(self.data_ingestion_ingested_dir,training_pipeline.TRAIN_FILE_NAME)
+        self.data_ingestion_test_file=os.path.join(self.data_ingestion_ingested_dir,training_pipeline.TEST_FILE_NAME)
