@@ -2,10 +2,12 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-uri = "mongodb+srv://manikantaanyum966:admin123@cluster0.1sp0opi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = "mongodb+srv://manikantaanyum966:anyum@cluster0.bvei6xs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
+client = MongoClient(uri)
+
+print(client.list_database_names())
 
 # Send a ping to confirm a successful connection
 try:
