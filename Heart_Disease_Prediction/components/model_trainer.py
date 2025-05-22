@@ -16,6 +16,8 @@ from Heart_Disease_Prediction.utils.main_utils.utils import (
 )
 from Heart_Disease_Prediction.utils.ml_utils.metric import classification_metric
 from Heart_Disease_Prediction.utils.main_utils.utils import evaluate_models
+import dagshub
+dagshub.init(repo_owner='sharmi-jes', repo_name='Heart_Disease_Prediction', mlflow=True)
 
 from Heart_Disease_Prediction.utils.ml_utils.metric.classification_metric import get_classification_score
 from Heart_Disease_Prediction.utils.ml_utils.model.estimator import NetworkModel

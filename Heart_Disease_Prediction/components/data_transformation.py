@@ -44,12 +44,13 @@ class DataTransformation:
             test_df=self.read_data(test_data)
 
             logging.info(f"The shape of train data is:{train_df.shape} and test data is:{test_df.shape}")
+            logging.info(f"the train data cols is:{train_df.columns}")
 
             logging.info("remove the target from both train and test data")
-            input_feature_train_df=train_df.drop(columns=TARGET_VARIABLE)
+            input_feature_train_df=train_df.drop(columns=[TARGET_VARIABLE,'Unnamed: 0'])
             input_feature_train_target_df=train_df[TARGET_VARIABLE]
 
-            input_feature_test_df=test_df.drop(columns=TARGET_VARIABLE)
+            input_feature_test_df=test_df.drop(columns=[TARGET_VARIABLE,'Unnamed: 0'])
             input_feature_test_target_df=test_df[TARGET_VARIABLE]
 
 
@@ -60,6 +61,7 @@ class DataTransformation:
             input_feature_test_scaled_df=preprocesssing.transform(input_feature_test_df)
 
             save_object(self.data_transformation_confog.data_transformation_object_dir,preprocesssing)
+            save_object("final_model/preprocessing.pkl",preprocesssing)
 
             logging.info("combine the i/p and o/p data")
             train_array=np.c_[input_feature_train_sacled_df,np.array(input_feature_train_target_df)]

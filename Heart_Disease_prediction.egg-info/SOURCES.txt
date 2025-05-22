@@ -15,6 +15,9 @@ Heart_Disease_Prediction/exception/__init__.py
 Heart_Disease_Prediction/exception/exception.py
 Heart_Disease_Prediction/logging/__init__.py
 Heart_Disease_Prediction/logging/logging.py
+Heart_Disease_Prediction/pipeline/__init__.py
+Heart_Disease_Prediction/pipeline/predict_pipeline.py
+Heart_Disease_Prediction/pipeline/training_pipeline.py
 Heart_Disease_Prediction/utils/__init__.py
 Heart_Disease_Prediction/utils/utils.py
 Heart_Disease_Prediction/utils/main_utils/__init__.py
