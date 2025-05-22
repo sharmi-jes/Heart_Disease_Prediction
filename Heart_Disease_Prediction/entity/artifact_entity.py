@@ -14,4 +14,10 @@ class DataValidationArtifact:
     data_validation_invalid_train_file:str
     data_validation_invalid_test_file:str
     data_validation_report_drift_file:str
+
+@dataclass
+class DataTransformationArtifact:
+    data_transformation_train_file:str
+    data_transformation_test_file:str
+    data_transformation_object_dir:str
     

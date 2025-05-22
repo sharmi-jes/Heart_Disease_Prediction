@@ -38,3 +38,12 @@ class DataValidationConfig:
         self.data_validation_invalid_train_file=os.path.join(self.data_validation_invalid_dir,training_pipeline.TRAIN_FILE_NAME)
         self.data_validation_invalid_test_file=os.path.join(self.data_validation_invalid_dir,training_pipeline.TEST_FILE_NAME)
         self.data_validation_report_dir=os.path.join(self.data_validated_dir,training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_PATH)
+
+
+class DataTransformationconfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.data_transformation_dir=os.path.join(training_pipeline_config.artifact_dir,training_pipeline.DATA_TRANSFORMATION_OBJECT_DIR)
+        self.data_transformation_transformed_dir=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR)
+        self.data_transformation_train_file=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_TRAIN_FILE)
+        self.data_transformation_test_file=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_TEST_FILE)
+        self.data_transformation_object_dir=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_OBJECT_DIR,training_pipeline.DATA_TRANSFORMATION_OBJECT_FILE)
