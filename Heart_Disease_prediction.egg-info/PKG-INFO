@@ -12,6 +12,7 @@ Requires-Dist: mlflow
 Requires-Dist: dagshub
 Requires-Dist: Flask
 Requires-Dist: pymongo
+Requires-Dist: gunicorn
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
