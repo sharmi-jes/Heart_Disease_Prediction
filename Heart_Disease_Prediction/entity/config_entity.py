@@ -47,3 +47,12 @@ class DataTransformationconfig:
         self.data_transformation_train_file=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_TRAIN_FILE)
         self.data_transformation_test_file=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_TEST_FILE)
         self.data_transformation_object_dir=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_OBJECT_DIR,training_pipeline.DATA_TRANSFORMATION_OBJECT_FILE)
+
+class ModelTrainerConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.model_trainer_dir=os.path.join(training_pipeline_config.artifact_dir,training_pipeline.MODEL_TRAINER_DIR)
+        self.model_trainer_trained_dir=os.path.join(self.model_trainer_dir,training_pipeline.MODEL_TRAINER_TRAINED_DIR)
+        self.model_trainer_expected_score=training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
+        self.model_trainer_model_file_path=os.path.join(self.model_trainer_trained_dir,training_pipeline.MODEL_TRAINER_MODEL_NAME)
+        self.model_trainer_underfitting_threshold=training_pipeline.MODEL_TRAINER_UNDERFITTING_THRESHOLD
+        

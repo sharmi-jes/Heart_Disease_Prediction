@@ -5,8 +5,9 @@ from Heart_Disease_Prediction.logging.logging import logging
 from Heart_Disease_Prediction.components.data_ingestion import DataIngestion
 from Heart_Disease_Prediction.components.data_validation import DataValidation
 from Heart_Disease_Prediction.components.data_transformation import DataTransformation
-from Heart_Disease_Prediction.entity.config_entity import DataIngestionConfig,TrainingPipelineConfig,DataValidationConfig,DataTransformationconfig
-from Heart_Disease_Prediction.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformationArtifact
+from Heart_Disease_Prediction.components.model_trainer import ModelTrainer
+from Heart_Disease_Prediction.entity.config_entity import DataIngestionConfig,TrainingPipelineConfig,DataValidationConfig,DataTransformationconfig,ModelTrainerConfig
+from Heart_Disease_Prediction.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformationArtifact,ModelTrainerArtifact
 
 
 if __name__=="__main__":
@@ -34,6 +35,14 @@ if __name__=="__main__":
         data_transformation_artifact=data_transformation.initiate_data_transformation()
         print(data_transformation_artifact)
         logging.info(f"complete the process of data transformation artifact {data_transformation_artifact}")
+
+
+        logging.info("starting the process of model trainer")
+        model_trainer_config=ModelTrainerConfig(training_pipeline)
+        model_trainer=ModelTrainer(data_transformation_artifact,model_trainer_config)
+        model_trainer_artifact=model_trainer.initiate_model_trainer()
+        print(model_trainer_artifact)
+        logging.info(f"completed the process of model trainer:{model_trainer_artifact}")
     except Exception as e:
         raise HeartDiasesException(e,sys)
     

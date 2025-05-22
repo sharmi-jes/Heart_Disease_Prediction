@@ -20,4 +20,17 @@ class DataTransformationArtifact:
     data_transformation_train_file:str
     data_transformation_test_file:str
     data_transformation_object_dir:str
+
+@dataclass
+class ClassificationMetric:
+    f1_score:float
+    accuracy_score:float
+    precision:float
+    recall:float
+
+@dataclass 
+class ModelTrainerArtifact:
+    model_trained_file:str
+    model_trainer_trained_accurayc:ClassificationMetric
+    model_trainer_tested_accuracy:ClassificationMetric
     

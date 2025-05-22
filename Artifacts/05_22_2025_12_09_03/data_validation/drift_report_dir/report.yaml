@@ -1,0 +1,42 @@
+age:
+  drift_status: false
+  p_value: 0.995614454447264
+ca:
+  drift_status: false
+  p_value: 0.9986197021470726
+chol:
+  drift_status: true
+  p_value: 0.11508212128364545
+cp:
+  drift_status: true
+  p_value: 0.3959390980759392
+exang:
+  drift_status: false
+  p_value: 0.9999571234840211
+fbs:
+  drift_status: false
+  p_value: 0.5127293122428083
+oldpeak:
+  drift_status: false
+  p_value: 0.9477061856232876
+restecg:
+  drift_status: false
+  p_value: 1.0
+sex:
+  drift_status: false
+  p_value: 0.9996905910139303
+slope:
+  drift_status: false
+  p_value: 0.995614454447264
+target:
+  drift_status: false
+  p_value: 1.0
+thal:
+  drift_status: false
+  p_value: 0.9774583392522549
+thalach:
+  drift_status: false
+  p_value: 0.7461078075943651
+trestbps:
+  drift_status: true
+  p_value: 0.08467473280457115
