@@ -12,13 +12,18 @@ from Heart_Disease_Prediction.utils.main_utils.utils import (
     load_numpy_array_data, save_object,load_object
 
 
+
 )
+from Heart_Disease_Prediction.utils.ml_utils.metric import classification_metric
 from Heart_Disease_Prediction.utils.main_utils.utils import evaluate_models
 
 from Heart_Disease_Prediction.utils.ml_utils.metric.classification_metric import get_classification_score
 from Heart_Disease_Prediction.utils.ml_utils.model.estimator import NetworkModel
-
-
+import mlflow
+#  f1_score:float
+    # accuracy_score:float
+    # precision:float
+    # recall:float
 
 class ModelTrainer:
     def __init__(self, data_transformation_artifact: DataTransformationArtifact, model_trainer_config: ModelTrainerConfig):
@@ -27,6 +32,22 @@ class ModelTrainer:
             self.model_trainer_config = model_trainer_config
         except Exception as e:
             raise HeartDiasesException(e, sys)
+        
+    def track_mlflow(self,model,classification_metric):
+        with mlflow.start_run():
+         f1_score=classification_metric.f1_score
+         accuracy_score=classification_metric.accuracy_score
+         precision=classification_metric.precision
+         recall=classification_metric.recall
+
+
+         mlflow.log_metric("f1_score",f1_score)
+         mlflow.log_metric("accuracy_score",accuracy_score)
+         mlflow.log_metric("precision",precision)
+         mlflow.log_metric("recall",recall)
+
+         mlflow.sklearn.log_model(model,"model")
+
 
     def train_model(self, x_train, y_train, x_test, y_test) -> ModelTrainerArtifact:
         try:
@@ -94,8 +115,14 @@ class ModelTrainer:
             y_train_pred = best_model.predict(x_train)
             classification_train_metric = get_classification_score(y_true=y_train, y_pred=y_train_pred)
 
+            logging.info('call the track mlflow for train metrics')
+            self.track_mlflow(best_model,classification_train_metric)
+
             y_test_pred = best_model.predict(x_test)
             classification_test_metric = get_classification_score(y_true=y_test, y_pred=y_test_pred)
+
+            logging.info("call the track mlflow for test metrics")
+            self.track_mlflow(best_model,classification_test_metric)
 
             preprocessor = load_object(file_path=self.data_transformation_artifact.data_transformation_object_dir)
 

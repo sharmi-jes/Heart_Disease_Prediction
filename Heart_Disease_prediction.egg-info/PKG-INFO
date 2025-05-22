@@ -13,6 +13,8 @@ Requires-Dist: pymongo
 Requires-Dist: certifi
 Requires-Dist: dotenv
 Requires-Dist: Pyaml
+Requires-Dist: mlflow
+Requires-Dist: dagshub
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist

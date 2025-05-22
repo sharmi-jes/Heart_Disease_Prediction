@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Machine%20Learning%20Projects/Heart%20Disease%20Prediction/mlruns/0/f1bfff38fa0c4966b6316a28a9c6af81/artifacts
+end_time: 1747907764919
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f1bfff38fa0c4966b6316a28a9c6af81
+run_name: popular-grub-826
+run_uuid: f1bfff38fa0c4966b6316a28a9c6af81
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747907757821
+status: 3
+tags: []
+user_id: HP

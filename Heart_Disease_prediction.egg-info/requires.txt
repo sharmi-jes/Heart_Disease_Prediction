@@ -8,3 +8,5 @@ pymongo
 certifi
 dotenv
 Pyaml
+mlflow
+dagshub

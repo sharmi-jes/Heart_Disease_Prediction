@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Machine%20Learning%20Projects/Heart%20Disease%20Prediction/mlruns/0/c20697e07cce455e910028fa7c64cd56/artifacts
+end_time: 1747907769092
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c20697e07cce455e910028fa7c64cd56
+run_name: bald-sheep-921
+run_uuid: c20697e07cce455e910028fa7c64cd56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747907764941
+status: 3
+tags: []
+user_id: HP
