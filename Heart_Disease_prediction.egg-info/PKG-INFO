@@ -3,6 +3,7 @@ Name: Heart_Disease_prediction
 Version: 0.0.1
 Author: sharmi
 Author-email: anyumsharmila@gmail.com
+Requires-Dist: docker
 Requires-Dist: pandas
 Requires-Dist: numpy
 Requires-Dist: matplotlib
